@@ -1,0 +1,9 @@
+# .gitignore
+
+# Virtual environment
+venv/
+__pycache__/
+
+# Ignore the system-wide Python caches
+*.pyc
+*.pyo
