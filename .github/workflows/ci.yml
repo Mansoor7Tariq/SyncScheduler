@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Node.js dependencies
+      run: |
+        cd frontend  # Replace 'frontend' with the actual path to your React project
+        npm install
+
+    - name: Run ESLint
+      run: |
+        cd frontend  # Replace 'frontend' with the actual path to your React project
+        npm run lint
+
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt  # Make sure you have a requirements.txt file for your Django project
+
+    - name: Run Django tests
+      run: |
+        python manage.py test
